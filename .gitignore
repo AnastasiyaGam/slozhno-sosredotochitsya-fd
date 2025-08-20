@@ -1,0 +1,20 @@
+# Папки
+.vscode/
+node_modules/
+dist/
+
+# Файлы
+.DS_Store
+*.log
+.env
+
+# Локальные настройки
+# .editorconfig
+# .prettierrc
+# .prettierignore
+# stylelint.config.js
+# package-lock.json
+
+# Тестовые файлы
+test-file.html
+test-file.css
