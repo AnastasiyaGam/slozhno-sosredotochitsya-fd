@@ -7,75 +7,80 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  color: var(--text-color, #f1b2ce);
 }
+
+/* ШАПКА САЙТА */
 
 .header {
   position: relative;
   display: grid;
-  grid-template-rows: 1fr min-content 1fr;
+  grid-template-rows: 1fr min-content 1fr; /* 3 строки: верх, заголовок, низ */
   align-items: center;
   height: 100vh;
   min-height: 668px;
-  padding: 10px;
+  padding: var(--page-padding);
 }
+
+/* Бейдж "REC" в правом верхнем углу */
 
 .header__rec {
   position: absolute;
-  top: 10px;
-  right: 19px;
+  inset-block-start: var(--decorated-elemet-indent);
+  inset-inline-end: calc(var(--decorated-elemet-indent) + 9px);
   display: flex;
   align-items: center;
   text-align: center;
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 400;
   gap: 10px;
   color: var(--accent-color, #ff0070);
-  font-size: 18px;
   line-height: 25px;
   text-transform: uppercase;
 }
+
+/* Красная точка рядом с REC */
 
 .header__rec::after {
   content: '';
   position: relative;
   display: inline-block;
-  width: 9px;
-  height: 9px;
+  inline-size: 9px;
+  block-size: 9px;
   border-radius: 50%;
   box-shadow: 0 0 4px 2px var(--accent-color, #ff0070);
   background-color: var(--accent-color, #ff0070);
 }
 
+/* Меню выбора темы */
+
 .header__theme-menu {
-  justify-self: end;
-  align-self: start;
-  grid-row: 1;
-  margin-top: 65px;
+  justify-self: end; /* Выравнивание по правому краю */
+  align-self: start; /* Выравнивание по верхнему краю */
+  grid-row: 1; /* Размещение в первой строке грида */
+  margin-block-start: 65px;
 }
+
+/* Главный заголовок сайта */
 
 .header__title {
   font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
   color: var(--title-color, #db00ff);
-  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
+  text-shadow: var(--title-shadow);
   line-height: 82.5%;
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
   font-weight: 700;
-  grid-row: 2;
+  grid-row: 2; /* Размещение во второй строке грида */
   justify-self: start;
   align-self: center;
 }
 
+/* Текстовый блок под заголовком */
+
 .header__content {
-  grid-row: 3;
-  width: 100%;
-  font-family: 'IBM Plex Mono';
-  font-size: 18px;
-  font-style: normal;
+  grid-row: 3; /* Размещение в третьей строке грида */
+  inline-size: 100%;
   font-weight: 700;
-  line-height: 23.4px;
 }
+
+/* Общий класс для заголовков с цветным фоном */
 
 .title-decor {
   display: inline-block;
@@ -83,112 +88,135 @@
   color: var(--title-decor-color, #000028);
 }
 
+/* Декоративные уголки для шапки и подвала */
+
 .decorated-zone::before,
 .decorated-zone::after {
   content: '';
   position: absolute;
-  width: 25px;
-  height: 25px;
+  inline-size: 25px;
+  block-size: 25px;
   z-index: 1;
 }
 
+/* Правый верхний уголок */
+
 .decorated-zone::before {
-  top: 10px;
-  right: 10px;
-  border-top: 1px solid var(--accent-color, #ff0070);
-  border-right: 1px solid var(--accent-color, #ff0070);
+  inset-block-start: var(--decorated-elemet-indent);
+  inset-inline-end: var(--decorated-elemet-indent);
+  border-block-start: 1px solid var(--accent-color, #ff0070);
+  border-inline-end: 1px solid var(--accent-color, #ff0070);
 }
+
+/* Левый нижний уголок */
 
 .decorated-zone::after {
-  bottom: 10px;
-  left: 10px;
-  border-bottom: 1px solid var(--accent-color, #ff0070);
-  border-left: 1px solid var(--accent-color, #ff0070);
+  inset-block-end: var(--decorated-elemet-indent);
+  inset-inline-start: var(--decorated-elemet-indent);
+  border-block-end: 1px solid var(--accent-color, #ff0070);
+  border-inline-start: 1px solid var(--accent-color, #ff0070);
 }
+
+/* ОСНОВНОЕ СОДЕРЖИМОЕ СТРАНИЦЫ */
 
 .main {
-  padding: 40px 10px;
+  display: grid;
+  gap: 50px;
+  padding: 40px var(--page-padding);
 }
+
+/* Секция контента */
 
 .section {
-  margin-bottom: 50px;
+  display: grid;
+  gap: 20px;
 }
 
+/* Заголовок секции */
+
 .section__title {
-  font-size: 18px;
+  font-size: inherit;
   font-weight: 700;
-  line-height: 23.4px;
-  margin-bottom: 20px;
+  line-height: inherit;
   color: var(--section-title-color, #ff0070);
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
 }
+
+/* Контейнер для карточек внутри секции */
 
 .section__content {
   display: grid;
   gap: 20px;
 }
 
+/* Карточка с контентом */
+
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 10px;
 }
 
+/* Заголовок карточки */
+
 .card__title {
-  font-size: 18px;
+  font-size: inherit;
   font-weight: 700;
   color: var(--card-title-color, #000028);
-  line-height: 23.4px;
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
 }
 
+/* Текст карточки */
+
 .card__text {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: inherit;
   color: var(--text-color, #f1b2ce);
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  line-height: 23.4px; /* 130% */
 }
+
+/* Облегченная версия заголовка карточки */
 
 .card__title_light {
   font-weight: 400;
 }
 
+/* Отступ между заголовками в карточке */
+
 .card__title.title-decor + .card__title_light.title-decor {
-  margin-top: 10px;
+  margin-block-start: 10px;
 }
+
+/* Ссылка внутри текста */
 
 .card__link {
   display: inline;
   white-space: nowrap;
   color: var(--text-color, #f1b2ce);
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+  text-shadow: var(--link-shadow);
   cursor: pointer;
 }
 
+/* Эффект при наведении на ссылку */
+
 .card__link:hover {
-  border-bottom: 1px solid var(--text-color, #f1b2ce);
+  border-block-end: 1px solid currentColor;
 }
 
+/* Контур при фокусе на ссылке */
+
 .card__link:focus-visible {
-  outline: 1px solid var(--text-color, #f1b2ce);
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
+/* ГАЛЕРЕЯ ИЗОБРАЖЕНИЙ */
+
 .gallery__title {
   width: 100%;
-  font-size: 18px;
+  font-size: inherit;
   font-weight: 700;
   color: var(--card-title-color, #000028);
-  line-height: 23.4px;
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
   margin-bottom: 10px;
 }
+
+/* Сетка галереи */
 
 .gallery__grid {
   display: grid;
@@ -196,68 +224,76 @@
   gap: 10px;
 }
 
+/* Изображение в галерее */
+
 .gallery__image {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
+/* ПОДВАЛ САЙТА */
+
 .footer {
   position: relative;
   display: grid;
   place-items: center; /* Центрируем по обеим осям */
-  height: 100vh; /* Высота равна высоте окна браузера */
-  min-height: 668px; /* Минимальная высота из макета */
-  padding: 10px;
+  height: 100vh;
+  min-height: 668px;
+  padding: var(--page-padding);
 }
+
+/* Заголовок в подвале */
 
 .footer__title {
   font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
   color: var(--title-color, #db00ff);
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070); /* ← Отличие от шапки: тень 2px вместо 4px */
   line-height: 82.5%;
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 700;
 }
+
+/* КНОПКИ МЕНЮ ТЕМ */
 
 .header__theme-menu-button {
   position: relative;
+  line-height: 26px;
+  min-block-size: 26px;
+  text-align: center;
   padding: 0 13px;
   border: none;
   background: transparent;
   color: var(--button-border-color);
-  font-family: 'IBM Plex Mono';
   text-transform: lowercase;
-  font-size: 18px;
   cursor: pointer;
 }
 
-/* Активная кнопка */
+/* Активная кнопка темы */
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--button-border-color);
-  pointer-events: none;
+  border: 1px solid currentColor;
+  pointer-events: none; /* Отключает взаимодействие с активной кнопкой */
 }
 
-/* Фокус (только нижняя граница) */
+/* Контур при фокусе на кнопке */
 
 .header__theme-menu-button:focus-visible {
   outline: none;
-  border-bottom: 1px solid var(--button-border-color);
+  border-bottom: 1px solid currentColor;
 }
 
-/* Ховер (все стороны с прозрачностью) */
+/* Эффект при наведении на кнопку */
 
 .header__theme-menu-button:hover {
   border: 1px solid var(--button-hover-color);
 }
 
-/* Отключаем ховер для активной кнопки */
+/* Отключение эффекта ховера для активной кнопки */
 
 .header__theme-menu-button_active:hover {
-  border: 1px solid var(--button-border-color);
+  border: 1px solid currentColor;
 }
+
+/* Список кнопок меню темы */
 
 .header__theme-menu-list {
   display: flex;
@@ -268,98 +304,72 @@
 /* Медиазапрос для экранов от 768px (планшеты) */
 
 @media (min-width: 768px) {
+
+  :root {
+    --page-padding: 20px;
+    --decorated-elemet-indent: 20px;
+  }
+
   .header {
-    padding: 20px;
     grid-template-rows: 1fr min-content 1fr;
   }
 
-  .header__rec {
-    top: 20px;
-    right: 29px;
-  }
-
-  .decorated-zone::before {
-    top: 20px;
-    right: 20px;
-  }
-
-  .decorated-zone::after {
-    bottom: 20px;
-    left: 20px;
-  }
+  /* Адаптивный заголовок */
 
   .header__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    margin-left: -20px;
+    margin-inline-start: -20px; /* Вынос за границы для крупного текста */
   }
 
+  /* Ограничение ширины текстового блока */
+
   .header__content {
-    width: 50%;
+    max-inline-size: 50%;
     justify-self: end;
   }
 
+  /* Корректировка позиции меню */
+
   .header__theme-menu {
-    margin-left: 20px;
-    margin-top: 192px;
+    margin-block-start: 172px;
   }
+
+  /* Увеличение отступов основного контента */
+
+  .main {
+    gap: 80px;
+    padding: 60px 20px;
+  }
+
+  /* Двухколоночная layout для секций */
 
   .section {
-    display: grid;
-    grid-template-columns: 236px 1fr; /* Две колонки: 236px и оставшееся пространство */
-    gap: 20px; /* Расстояние между колонками */
-    padding: 10px;
-    margin-top: 10px;
+    grid-template-columns: 236px 1fr;
   }
 
-  .section__title {
-    grid-column: 1; /* Заголовок в первой колонке */
-    width: 100%; /* Занимает всю ширину колонки */
-  }
+  /* Размещение контента во второй колонке */
 
   .section__content {
-    grid-column: 2; /* Контент во второй колонке */
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Расстояние между карточками */
+    grid-column: 2;
   }
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Расстояние внутри карточки */
-  }
   /* Для второй секции */
 
   .section:nth-child(2) {
     display: block; /* Убираем grid layout */
-    margin-top: 60px;
   }
+
+  /* Фиксированная ширина заголовка второй секции */
 
   .section:nth-child(2) .section__title {
-    width: 236px; /* Такая же ширина как у первого заголовка */
-    margin-bottom: 20px; /* Отступ снизу */
+    inline-size: 236px;
+    margin-bottom: 20px;
   }
 
-  .section:nth-child(2) .section__content {
-    display: flex;
-    flex-direction: column; /* Карточки в одну колонку */
-    gap: 20px;
-  }
-
-  /* Карточки занимают всю доступную ширину */
-
-  .section:nth-child(2) .card {
-    width: 100%;
-  }
-
-  .section:nth-child(3) {
-    margin-top: 60px; /* Отступ сверху 80px */
-  }
+  /* Настройки галереи для планшетов */
 
   .gallery {
-    padding: 0 10px;
-    margin-top: 70px; /* Отступ 79px сверху перед галереей */
-    margin-bottom: 20px; /* Отступ после галереи */
+    gap: 20px;
   }
 
   .gallery__title {
@@ -367,53 +377,53 @@
     margin-bottom: 20px;
   }
 
+  /* Трехколоночная сетка галереи */
+
   .gallery__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 192px 230px 318px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
     gap: 20px;
-    width: 100%;
-    min-width: 728px;
-    min-height: 780px;
     grid-template-areas:
       'sunset sunset icecream'
       'books tape icecream'
       'books street street';
   }
 
+  /* Полноразмерные изображения в галерее */
+
   .gallery__grid img {
-    width: 100%;
-    height: 100%;
+    inline-size: 100%;
+    block-size: 100%;
     object-fit: cover;
   }
+
+  /* Распределение изображений по областям сетки */
 
   .gallery__grid img:nth-child(1) {
     grid-area: sunset;
   }
+
   .gallery__grid img:nth-child(2) {
     grid-area: icecream;
   }
+
   .gallery__grid img:nth-child(3) {
     grid-area: books;
   }
+
   .gallery__grid img:nth-child(4) {
     grid-area: tape;
   }
+
   .gallery__grid img:nth-child(5) {
     grid-area: street;
   }
 
-  .footer {
-    height: 100vh;
-    min-height: 1024px; /* Высота по макету */
-    padding: 20px; /* Отступы по бокам 20px */
-    display: grid;
-    place-items: center; /* Центрируем по обеим осям */
-  }
+  /* Адаптивный заголовок подвала */
 
   .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    text-shadow: 2px 2px 0 var(--title-shadow-color, #ff0070);
   }
 }
 
@@ -425,63 +435,33 @@
   .header__theme-menu {
     justify-self: center;
     align-self: start;
-    margin-left: 0px;
-    margin-top: 0;
+    margin-block-start: 0;
   }
+
+  /* Горизонтальное меню для десктопов */
 
   .header__theme-menu-list {
-    display: flex;
     flex-direction: row;
-    gap: 10px;
   }
 
-  /* Заголовок - увеличиваем тень */
-
-  .header__title {
-    text-shadow: 4px 4px 0 var(--title-shadow-color, #ff0070);
-  }
-
-  .footer__title {
-    text-shadow: 2px 2px 0 var(--title-shadow-color, #ff0070);
-  }
-
-  /* Секции - увеличиваем ширину левой колонки */
+  /* Увеличение ширины левой колонки */
 
   .section {
     grid-template-columns: 315px 1fr;
-    margin-bottom: 60px; /* Увеличиваем с 236px до 315px */
   }
 
   .section__title {
-    min-width: 315px;
+    min-inline-size: 315px;
   }
 
   /* Вторая секция - 3 колонки для карточек */
 
   .section:nth-child(2) .section__content {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    align-items: start;
   }
-
-  /* Третья секция - оставляем как есть */
 
   .gallery {
     margin-bottom: 15px;
-  }
-  /* Галерея - увеличиваем размеры */
-
-  .gallery__grid {
-    width: 100%;
-    min-width: 984px; /* Увеличиваем ширину */
-    min-height: 1040px; /* Увеличиваем высоту */
-    grid-template-rows: 260px 315px 428px; /* Новые высоты строк */
-  }
-
-  /* Футер - увеличиваем минимальную высоту */
-
-  .footer {
-    min-height: 768px;
-    margin-top: 10px;
   }
 }
