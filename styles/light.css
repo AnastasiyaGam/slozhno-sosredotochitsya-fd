@@ -24,6 +24,12 @@
   --link-shadow: 2px 2px 0 var(--accent-color);
 }
 
+:root.theme-light .header__rec,
+:root.theme-light .header__rec::after {
+  display: none;
+  visibility: hidden;
+}
+
 @media (prefers-color-scheme: light) {
   /* стили в медиазапросе предпочтений пользователя
   */
@@ -42,5 +48,11 @@
     --button-border-color: #353430;
     --title-shadow: 4px 4px 0 var(--accent-color);
     --link-shadow: 2px 2px 0 var(--accent-color);
+  }
+
+  .header__rec,
+  .header__rec::after {
+    display: none;
+    visibility: hidden;
   }
 }

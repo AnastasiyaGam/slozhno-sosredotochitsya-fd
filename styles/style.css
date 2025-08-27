@@ -222,11 +222,21 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
+  margin: 0; /* Убираем стандартные отступы */
+  padding: 0; /* Убираем стандартные отступы */
+  list-style: none; /* Убираем маркеры списка */
+}
+
+.gallery__item {
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 /* Изображение в галерее */
 
 .gallery__image {
+  display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -368,13 +378,9 @@
 
   /* Настройки галереи для планшетов */
 
-  .gallery {
-    gap: 20px;
-  }
-
   .gallery__title {
-    width: 100%;
     margin-bottom: 20px;
+    width: 100%;
   }
 
   /* Трехколоночная сетка галереи */
@@ -392,31 +398,29 @@
 
   /* Полноразмерные изображения в галерее */
 
-  .gallery__grid img {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
+  .gallery__image {
+    height: 100%;
   }
 
   /* Распределение изображений по областям сетки */
 
-  .gallery__grid img:nth-child(1) {
+  .gallery__item:nth-child(1) {
     grid-area: sunset;
   }
 
-  .gallery__grid img:nth-child(2) {
+  .gallery__item:nth-child(2) {
     grid-area: icecream;
   }
 
-  .gallery__grid img:nth-child(3) {
+  .gallery__item:nth-child(3) {
     grid-area: books;
   }
 
-  .gallery__grid img:nth-child(4) {
+  .gallery__item:nth-child(4) {
     grid-area: tape;
   }
 
-  .gallery__grid img:nth-child(5) {
+  .gallery__item:nth-child(5) {
     grid-area: street;
   }
 
@@ -459,9 +463,5 @@
   .section:nth-child(2) .section__content {
     grid-template-columns: repeat(3, 1fr);
     align-items: start;
-  }
-
-  .gallery {
-    margin-bottom: 15px;
   }
 }
