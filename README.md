@@ -17,10 +17,11 @@
 - Декоративные элементы (REC-бейдж, уголки) через **псевдоэлементы** ::before/::after
 - Все интерактивные состояния (`:hover`, `:active`, `:focus-visible`) для кнопок и ссылок
 - Использование логических CSS-свойств (`margin-block-start`, `border-inline-end`)
+- Настроены **линтеры (Stylelint)** , **форматтер (Prettier)** и **npm-скрипты** для автоматической проверки и форматирования кода
 
 ## Технологии
 
-HTML5, CSS3, CSS-переменные, Grid, Flexbox, clamp(), логические свойства, Stylelint, Prettier, Git
+HTML5, CSS3, CSS-переменные, Grid, Flexbox, clamp(), логические свойства, Stylelint, Prettier, npm, Git
 
 ## Как запустить
 
